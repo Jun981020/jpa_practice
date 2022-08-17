@@ -2,10 +2,7 @@ package com.example.book_api.domain;
 
 import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.time.LocalDateTime;
 @NoArgsConstructor
 @AllArgsConstructor
@@ -25,7 +22,15 @@ public class Users {
     @NonNull
     private String email;
 
+    @Column(updatable = false)
     private LocalDateTime createdAt;
 
+    @Column(insertable = false)
     private LocalDateTime updateAt;
+
+//    @Transient
+//    private String test; 영속성의 영향을 받지 않는다.
+
+    @Enumerated(value = EnumType.STRING)
+    private Gender gender;
 }
