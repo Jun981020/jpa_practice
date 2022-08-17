@@ -1,0 +1,45 @@
+package com.example.book_api.repostory;
+
+import com.example.book_api.repostory.UserRepository;
+import com.example.book_api.domain.Users;
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+
+import java.util.Collections;
+
+
+@SpringBootTest
+class UserRepositoryTest {
+
+    @Autowired
+    UserRepository userRepository;
+
+    @Test
+    public void crud(){
+//        userRepository.findAll().forEach(System.out::println);
+//        userRepository.findByEmailAndName("flwnsgud@nate.com","jun");
+//        userRepository.findByEmailOrName("flwnsgud@nate.com","jun");
+//        userRepository.findByCreatedAtAfter(LocalDateTime.now().minusDays(1L)).forEach(System.out::println);
+//            userRepository.findByIdAfter(3L).forEach(System.out::println);
+//        userRepository.findByCreatedAtGreaterThan(LocalDateTime.now().minusDays(1L)).forEach(System.out::println);
+//        userRepository.findByCreatedAtGreaterThanEqual(LocalDateTime.now().minusDays(1L)).forEach(System.out::println);
+//        System.out.println(userRepository.findByIdIsNotNull());
+//        System.out.println(userRepository.findByNameIn(Lists.newArrayList("jun","sang")));
+
+//        System.out.println(userRepository.findByNameStartingWith("j"));
+//        System.out.println(userRepository.findByNameEndsWith("g"));
+//        System.out.println(userRepository.findByNameContains("u"));
+//        System.out.println(userRepository.findTop1ByName("jun"));
+//        System.out.println(userRepository.findLast1ByName("jun"));
+//        System.out.println(userRepository.findFirstByName("jun",Sort.by(Sort.Order.desc("email"))));
+        System.out.println(userRepository.findAllByName("jun", PageRequest.of(0,1,Sort.by(Sort.Order.asc("id")))).getContent());
+
+    }
+
+
+}
