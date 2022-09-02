@@ -25,7 +25,7 @@ public class Users {
     @Column(updatable = false)
     private LocalDateTime createdAt;
 
-    @Column(insertable = false)
+    @Column()
     private LocalDateTime updateAt;
 
 //    @Transient
@@ -33,4 +33,13 @@ public class Users {
 
     @Enumerated(value = EnumType.STRING)
     private Gender gender;
+
+    @PrePersist
+    public void prepPersist(){
+
+        this.createdAt = LocalDateTime.now();
+        this.updateAt = LocalDateTime.now();
+    }
+
+
 }

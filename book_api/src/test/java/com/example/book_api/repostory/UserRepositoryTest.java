@@ -54,8 +54,14 @@ class UserRepositoryTest {
 
         System.out.println(userRepository.findById(1L).orElseThrow());
         System.out.println(userRepository.findRowRecodes().get("gender"));
-
-
+    }
+    @Test
+    public void perPersistTest(){
+        Users users = new Users();
+        users.setEmail("test1");
+        users.setName("tester");
+        userRepository.save(users);
+        System.out.println(userRepository.findByEmail("test1"));
     }
 
 }
